@@ -1,0 +1,16 @@
+$def with (movie)
+<h4><a href="/">返回首页</a> </h4>
+<h1>$movie.title</h1>
+<img src="/static/poster/$(movie.id).jpg"/>
+<hr>
+<p>年代:$movie.year</p>
+<p>国家:$movie.countries</p>
+<p>导演:
+    <a href="/director/$movie.directors" >$movie.directors</a>
+</p>
+$ casts = movie.casts.split(',')
+<p>主演:
+$for cast in casts
+    <a href="/cast/$cast">$cast</a>
+</p>
+<p>$movie.summary</p>
